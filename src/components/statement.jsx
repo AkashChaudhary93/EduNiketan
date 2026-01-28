@@ -6,14 +6,16 @@ import StaggerReveal from './StaggerReveal';
 
 export default function Statement() {
   return (
-    <section className="py-24 bg-gradient-to-b from-blue-50 to-white overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6">
 
-        <StaggerReveal className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+        <StaggerReveal className="text-center mb-24">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight text-[#0a1a2f] uppercase">
             Who We Are
           </h2>
-          <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full" />
+          <div className="w-24 h-2 bg-blue-600 mx-auto rounded-full relative">
+            <div className="absolute inset-0 bg-blue-400 blur-sm opacity-50" />
+          </div>
         </StaggerReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -24,12 +26,12 @@ export default function Statement() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SpotlightCard dark={false} className="group h-full !p-10 md:!p-14 !bg-white !border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500">
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
-                <Eye className="w-8 h-8 text-blue-600 group-hover:text-white" />
+            <SpotlightCard dark={false} className="group h-full !p-10 md:!p-14 transition-all duration-500 shadow-xl shadow-blue-500/5">
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
+                <Eye className="w-8 h-8 text-blue-500 group-hover:text-white" />
               </div>
 
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
+              <h3 className="text-3xl font-black text-[#0a1a2f] mb-6 tracking-tight flex items-center gap-3 uppercase">
                 Vision
               </h3>
 
@@ -51,12 +53,12 @@ export default function Statement() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SpotlightCard dark={false} className="group h-full !p-10 md:!p-14 !bg-white !border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500">
-              <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-indigo-600 group-hover:scale-110 transition-all duration-300">
-                <Target className="w-8 h-8 text-indigo-600 group-hover:text-white" />
+            <SpotlightCard dark={false} className="group h-full !p-10 md:!p-14 transition-all duration-500 shadow-xl shadow-blue-500/5">
+              <div className="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-indigo-600 group-hover:scale-110 transition-all duration-300">
+                <Target className="w-8 h-8 text-indigo-500 group-hover:text-white" />
               </div>
 
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight flex items-center gap-3">
+              <h3 className="text-3xl font-black text-[#0a1a2f] mb-6 tracking-tight flex items-center gap-3 uppercase">
                 Mission
               </h3>
 

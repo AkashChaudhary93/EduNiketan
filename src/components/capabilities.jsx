@@ -48,7 +48,7 @@ const capabilities = [
 
 export default function Capabilities() {
   return (
-    <section className="py-24 bg-gray-50 overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6">
 
         <div className="text-center mb-20">
@@ -56,7 +56,7 @@ export default function Capabilities() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-4xl md:text-5xl font-black text-[#0a1a2f] mb-4 uppercase tracking-tight"
           >
             Our Technology
           </motion.h2>
@@ -79,24 +79,24 @@ export default function Capabilities() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group"
             >
-              <SpotlightCard dark={false} className="h-full !p-10 !bg-white !border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-50 transition-colors duration-300">
+              <SpotlightCard dark={false} className="h-full !p-10 transition-all duration-300 shadow-xl shadow-blue-500/5 glass-noise-textured">
+                <div className="w-16 h-16 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                   <ReactiveIcon icon={cap.icon} size={32} color={cap.iconColor} />
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">
+                <h3 className="text-2xl font-black text-[#0a1a2f] mb-4 tracking-tight uppercase">
                   {cap.title}
                 </h3>
 
-                <p className="text-gray-500 mb-8 font-medium">
+                <p className="text-gray-600 mb-8 font-medium">
                   {cap.description}
                 </p>
 
                 <ul className="space-y-4">
                   {cap.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-3 text-gray-700">
+                    <li key={fIndex} className="flex items-start gap-3 text-gray-500">
                       <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                      <span className="text-[15px] font-medium leading-snug">{feature}</span>
+                      <span className="text-[15px] font-black uppercase tracking-widest leading-snug">{feature}</span>
                     </li>
                   ))}
                 </ul>

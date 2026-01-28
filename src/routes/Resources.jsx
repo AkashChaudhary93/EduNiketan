@@ -9,7 +9,8 @@ import {
     ExternalLink,
     Download,
     Calendar,
-    Zap
+    Zap,
+    ShieldCheck
 } from 'lucide-react';
 import Footer from "../components/footer";
 
@@ -62,10 +63,10 @@ export default function Resources() {
     const [activeTab, setActiveTab] = useState("All");
 
     return (
-        <div className="bg-white">
+        <div className="bg-transparent">
 
             {/* Resources Hero */}
-            <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 mesh-gradient overflow-hidden">
+            <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 bg-[#0a1a2f] overflow-hidden">
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent" />
                 <div className="max-w-[1280px] mx-auto px-6 relative z-10 text-center lg:text-left">
                     <motion.div
@@ -91,104 +92,130 @@ export default function Resources() {
                             <input
                                 type="text"
                                 placeholder="Search documentation, blog, or whitepapers..."
-                                className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl pl-16 pr-6 text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white/10 transition-all shadow-2xl"
+                                className="w-full h-16 bg-white/10 border border-white/20 rounded-2xl pl-16 pr-6 text-white font-medium focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:bg-white/20 transition-all shadow-2xl placeholder:text-gray-500"
                             />
                         </div>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Resource Categories */}
-            <section className="py-24 max-w-[1280px] mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-                    {resourceCategories.map((cat, i) => (
-                        <motion.div
-                            key={i}
-                            whileHover={{ y: -5 }}
-                            className="group bg-gray-50 p-10 rounded-[2.5rem] border border-gray-100 hover:bg-white hover:shadow-2xl transition-all duration-500"
-                        >
-                            <div className="w-16 h-16 bg-white rounded-3xl flex items-center justify-center mb-10 shadow-sm border border-gray-100 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                                {cat.icon}
+            {/* Live System Status Widget */}
+            <section className="py-12 bg-[#f1f5f9] border-b border-gray-200">
+                <div className="max-w-[1280px] mx-auto px-6">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+                        <div className="flex items-center gap-3">
+                            <div className="relative flex items-center justify-center w-3 h-3">
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
                             </div>
-                            <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight text-balance">{cat.title}</h3>
-                            <p className="text-gray-500 text-sm font-medium mb-8 leading-relaxed italic border-l-2 border-blue-500/20 pl-4">
-                                {cat.desc}
-                            </p>
-                            <ul className="space-y-4">
-                                {cat.links.map((link, j) => (
-                                    <li key={j}>
-                                        <a href="#" className="flex items-center justify-between text-sm font-bold text-gray-700 hover:text-blue-600 transition-colors group/link">
-                                            {link}
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all" />
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Latest Articles Section */}
-                <div className="mb-16 flex flex-col md:flex-row items-end justify-between gap-8">
-                    <div className="max-w-2xl">
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight text-balance">Latest Articles</h2>
-                        <div className="w-24 h-1.5 bg-blue-600 rounded-full" />
+                            <span className="text-sm font-black text-gray-500 uppercase tracking-widest">API Uptime: <span className="text-emerald-600">99.99%</span></span>
+                        </div>
+                        <div className="hidden md:block w-px h-4 bg-gray-300"></div>
+                        <div className="flex items-center gap-3">
+                            <ShieldCheck className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm font-black text-gray-500 uppercase tracking-widest">Encryption Layer: <span className="text-blue-600">Active</span></span>
+                        </div>
+                        <div className="hidden md:block w-px h-4 bg-gray-300"></div>
+                        <div className="flex items-center gap-3">
+                            <Zap className="w-4 h-4 text-amber-500" />
+                            <span className="text-sm font-black text-gray-500 uppercase tracking-widest">Exam Server Latency: <span className="text-gray-700">24ms</span></span>
+                        </div>
                     </div>
-                    <div className="flex gap-4">
-                        {["All", "Technical", "Policy", "Infrastructure"].map(tab => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-blue-600 text-white shadow-lg' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
+                </div>
+            </section>
+
+            {/* Resource Categories */}
+            <section className="py-24 bg-white">
+                <div className="max-w-[1280px] mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                        {resourceCategories.map((cat, i) => (
+                            <motion.div
+                                key={i}
+                                whileHover={{ y: -5 }}
+                                className="group bg-[#f8fafc] border border-blue-100 p-10 rounded-[2.5rem] transition-all duration-500 shadow-xl shadow-blue-500/5"
                             >
-                                {tab}
-                            </button>
+                                <div className="w-16 h-16 bg-white border border-blue-100 rounded-3xl flex items-center justify-center mb-10 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                    {cat.icon}
+                                </div>
+                                <h3 className="text-2xl font-black text-[#0a1a2f] mb-4 tracking-tight text-balance uppercase">{cat.title}</h3>
+                                <p className="text-gray-600 text-sm font-medium mb-8 leading-relaxed italic border-l-2 border-blue-500/20 pl-4">
+                                    {cat.desc}
+                                </p>
+                                <ul className="space-y-4">
+                                    {cat.links.map((link, j) => (
+                                        <li key={j}>
+                                            <a href="#" className="flex items-center justify-between text-xs font-black uppercase tracking-[0.1em] text-gray-500 hover:text-blue-500 transition-colors group/link">
+                                                {link}
+                                                <ArrowRight className="w-4 h-4 opacity-0 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all" />
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {articles.filter(a => activeTab === "All" || a.category === activeTab).map((article, i) => (
-                        <motion.article
-                            key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="group cursor-pointer"
-                        >
-                            <div className="relative h-64 mb-8 overflow-hidden rounded-[2.5rem] bg-gray-100">
-                                <img
-                                    src={article.image}
-                                    alt={article.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                    onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000"; }}
-                                />
-                                <div className="absolute top-6 left-6 px-4 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-black uppercase tracking-widest text-blue-600 shadow-xl">
-                                    {article.category}
+                    {/* Latest Articles Section */}
+                    <div className="mb-16 flex flex-col md:flex-row items-end justify-between gap-8">
+                        <div className="max-w-2xl">
+                            <h2 className="text-4xl md:text-5xl font-black text-[#0a1a2f] mb-6 tracking-tight text-balance uppercase">Latest Articles</h2>
+                            <div className="w-24 h-1.5 bg-blue-600 rounded-full" />
+                        </div>
+                        <div className="flex gap-4">
+                            {["All", "Technical", "Policy", "Infrastructure"].map(tab => (
+                                <button
+                                    key={tab}
+                                    onClick={() => setActiveTab(tab)}
+                                    className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'bg-blue-50 text-gray-500 border border-blue-100 hover:bg-blue-100'}`}
+                                >
+                                    {tab}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        {articles.filter(a => activeTab === "All" || a.category === activeTab).map((article, i) => (
+                            <motion.article
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group cursor-pointer"
+                            >
+                                <div className="relative h-64 mb-8 overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10">
+                                    <img
+                                        src={article.image}
+                                        alt={article.title}
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-transform duration-700"
+                                        onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000"; }}
+                                    />
+                                    <div className="absolute top-6 left-6 px-4 py-1.5 bg-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-xl">
+                                        {article.category}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex items-center gap-3 text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">
-                                <Calendar className="w-4 h-4" />
-                                {article.date}
-                            </div>
-                            <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors leading-tight text-balance">
-                                {article.title}
-                            </h3>
-                            <p className="text-gray-500 font-medium leading-relaxed mb-8 text-pretty">
-                                {article.desc}
-                            </p>
-                            <div className="flex items-center gap-2 text-blue-600 font-black uppercase tracking-widest text-xs group-hover:gap-4 transition-all pb-2 border-b-2 border-transparent group-hover:border-blue-500 inline-block">
-                                Read Analysis <ArrowRight className="w-4 h-4" />
-                            </div>
-                        </motion.article>
-                    ))}
+                                <div className="flex items-center gap-3 text-gray-500 text-[10px] font-black uppercase tracking-widest mb-4">
+                                    <Calendar className="w-4 h-4 text-blue-500" />
+                                    {article.date}
+                                </div>
+                                <h3 className="text-2xl font-black text-[#0a1a2f] mb-4 group-hover:text-blue-500 transition-colors leading-tight text-balance uppercase tracking-tight">
+                                    {article.title}
+                                </h3>
+                                <p className="text-gray-600 font-medium leading-relaxed mb-8 text-pretty">
+                                    {article.desc}
+                                </p>
+                                <div className="flex items-center gap-2 text-blue-500 font-black uppercase tracking-widest text-[10px] group-hover:gap-4 transition-all pb-2 border-b-2 border-transparent group-hover:border-blue-500 inline-block">
+                                    Read Analysis <ArrowRight className="w-4 h-4" />
+                                </div>
+                            </motion.article>
+                        ))}
+                    </div>
                 </div>
             </section>
 
             {/* CTA Footer Section */}
-            <section className="py-24 bg-gray-900 overflow-hidden relative">
-                <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
+            <section className="py-24 bg-[#0a1a2f] overflow-hidden relative">
+                <div className="absolute top-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[40px] -translate-y-1/2 -translate-x-1/2" />
                 <div className="max-w-[1280px] mx-auto px-6 text-center">
                     <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight text-balance">Need Technical Specs?</h2>
                     <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium">Download our comprehensive integration Whitepaper 2.0 to see how our binary encryption protocol works at scale.</p>

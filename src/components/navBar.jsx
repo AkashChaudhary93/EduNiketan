@@ -55,8 +55,8 @@ function NavBar() {
           y: visible ? 0 : -120,
           opacity: 1,
           maxWidth: scrolled ? '1200px' : '1280px',
-          scale: scrolled ? 0.99 : 1,
         }}
+        style={{ willChange: "transform" }}
         transition={{
           type: "spring",
           stiffness: 120,
@@ -65,12 +65,12 @@ function NavBar() {
         }}
         className={`w-full pointer-events-auto transition-all duration-500 rounded-full border relative overflow-hidden
             ${scrolled
-            ? 'bg-[#0a1a2f]/85 backdrop-blur-xl border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] py-2'
+            ? 'bg-[#0a1a2f] border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] py-2'
             : 'bg-transparent border-transparent py-5'
           }`}
       >
-        {/* Superior Glassmorphism Glint & Noise */}
-        <div className="absolute inset-0 bg-noise pointer-events-none mix-blend-overlay opacity-[0.03]" />
+        {/* Superior Glassmorphism Glint & Noise - REMOVED NOISE FOR SAFETY */}
+        {/* <div className="absolute inset-0 bg-noise pointer-events-none mix-blend-overlay opacity-[0.03]" /> */}
 
         {/* Cursor Following Glint */}
         <motion.div
@@ -91,7 +91,7 @@ function NavBar() {
             <Magnetic>
               <NavLink to="/" className="flex items-center gap-3 group">
                 <div className="relative flex-shrink-0">
-                  <div className="absolute inset-0 bg-blue-500 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
+                  <div className="absolute inset-0 bg-blue-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
                   <motion.img
                     src="/EduniketanLogoNew.jpg"
                     alt="Eduniketan Logo"
@@ -99,7 +99,7 @@ function NavBar() {
                     style={{ imageRendering: 'high-quality' }}
                   />
                 </div>
-                <span className="text-xl font-black text-white tracking-[0.1em] group-hover:tracking-[0.15em] transition-all duration-500 whitespace-nowrap subpixel-antialiased">
+                <span className="text-xl font-black text-white tracking-[0.1em] group-hover:tracking-[0.15em] transition-all duration-500 whitespace-nowrap">
                   EDUNIKETAN
                 </span>
               </NavLink>
@@ -108,7 +108,7 @@ function NavBar() {
 
           {/* Desktop Menu - Centered Liquid sliding Pill */}
           <div
-            className={`hidden lg:flex items-center bg-white/[0.03] rounded-full p-1 border border-white/5 backdrop-blur-md relative overflow-hidden flex-none transition-all duration-500 ${scrolled ? 'gap-0.5' : 'gap-1'}`}
+            className={`hidden lg:flex items-center bg-[#0a2039] rounded-full p-1 border border-white/5 relative overflow-hidden flex-none transition-all duration-500 ${scrolled ? 'gap-0.5' : 'gap-1'}`}
             onMouseLeave={() => setHoveredPath(null)}
           >
             {navItems.map((item) => (
@@ -127,20 +127,20 @@ function NavBar() {
                 {/* Unified Liquid Pill Logic */}
                 {hoveredPath === item.path && (
                   <motion.div
-                    layoutId="navbar-pill"
                     className="absolute inset-0 bg-white/10 shadow-[0_0_20px_rgba(255,255,255,0.05)] rounded-full -z-10 border border-white/5"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", bounce: 0.15, duration: 0.6 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.2 }}
                   />
                 )}
 
                 {location.pathname === item.path && !hoveredPath && (
                   <motion.div
-                    layoutId="navbar-pill"
                     className="absolute inset-0 bg-white/10 shadow-[0_8px_16px_rgba(0,0,0,0.2)] rounded-full -z-10 border border-white/10"
-                    transition={{ type: "spring", bounce: 0.15, duration: 0.6 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
                   />
                 )}
               </NavLink>
@@ -199,13 +199,13 @@ function NavBar() {
       </motion.nav >
 
       {/* Cinematic Mobile Menu */}
-      < AnimatePresence >
+      <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(40px)' }}
-            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            className="fixed inset-0 bg-[#0a1a2f]/90 lg:hidden z-[1050] flex flex-col items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-[#020617] lg:hidden z-[1050] flex flex-col items-center justify-center pointer-events-auto"
           >
             <div className="absolute inset-0 bg-noise opacity-5 pointer-events-none" />
             <motion.div
@@ -227,9 +227,10 @@ function NavBar() {
                 >
                   <NavLink
                     to={item.path}
+                    onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `text-3xl md:text-5xl font-black uppercase tracking-[0.2em] transition-all duration-500
-                       ${isActive ? 'text-blue-500' : 'text-white/40 hover:text-white hover:tracking-[0.3em]'}`
+                      `text-3xl md:text-5xl font-black uppercase tracking-[0.2em] transition-all duration-500 block py-2
+                       ${isActive ? 'text-blue-500' : 'text-white hover:text-blue-400'}`
                     }
                   >
                     {item.name}
@@ -241,17 +242,16 @@ function NavBar() {
                   open: { scale: 1, opacity: 1, y: 0 },
                   closed: { scale: 0.8, opacity: 0, y: 20 }
                 }}
-                className="pt-12"
+                className="pt-12 px-6"
               >
-                <button className="px-12 py-6 bg-blue-600 rounded-3xl text-white font-black text-xl uppercase tracking-widest shadow-2xl shadow-blue-500/40 active:scale-95 transition-all">
+                <button className="w-full px-12 py-6 bg-blue-600 rounded-3xl text-white font-black text-xl uppercase tracking-widest shadow-2xl shadow-blue-500/40 active:scale-95 transition-all">
                   Get Started
                 </button>
               </motion.div>
             </motion.div>
           </motion.div>
-        )
-        }
-      </AnimatePresence >
+        )}
+      </AnimatePresence>
     </div >
   );
 }

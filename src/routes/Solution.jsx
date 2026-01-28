@@ -17,6 +17,7 @@ import {
 import Footer from "../components/footer";
 import SpotlightCard from "../components/SpotlightCard";
 import ReactiveIcon from "../components/ReactiveIcon";
+import AnimateNumber from "../components/AnimateNumber";
 
 const solutionCategories = [
     {
@@ -51,10 +52,10 @@ const solutionCategories = [
 
 export default function Solution() {
     return (
-        <div className="bg-white">
+        <div className="bg-[#020617]">
 
             {/* Solution Hero */}
-            <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 mesh-gradient overflow-hidden">
+            <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 bg-[#0a1a2f] mesh-gradient overflow-hidden">
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent" />
                 <div className="max-w-[1280px] mx-auto px-6 relative z-10">
                     <motion.div
@@ -73,69 +74,83 @@ export default function Solution() {
                 </div>
             </section>
 
+            {/* Platform Tour - Interactive Tabbed UI */}
+            <section className="bg-white relative z-10">
+                {/* <PlatformTour /> */}
+            </section>
+
             {/* Categories Section */}
-            <section className="py-24 max-w-[1280px] mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    {solutionCategories.map((sol, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group bg-gray-50 p-10 lg:p-14 rounded-[3rem] border border-gray-100 hover:bg-white hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] hover:border-blue-500/20 transition-all duration-500"
-                        >
-                            <div className="w-16 h-16 bg-white rounded-3xl flex items-center justify-center mb-10 shadow-sm border border-gray-100 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                                <ReactiveIcon icon={sol.icon} size={32} color="currentColor" />
-                            </div>
-                            <h3 className="text-3xl font-black text-gray-900 mb-6 tracking-tight text-balance">{sol.title}</h3>
-                            <p className="text-gray-500 text-lg font-medium mb-10 leading-relaxed">
-                                {sol.description}
-                            </p>
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                                {sol.features.map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm font-bold text-gray-700">
-                                        <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" />
-                                        {feat}
-                                    </li>
-                                ))}
-                            </ul>
-                            <button className="flex items-center gap-2 text-blue-600 font-black uppercase tracking-widest text-xs group-hover:gap-4 transition-all">
-                                Explore Infrastructure <ChevronRight className="w-4 h-4" />
-                            </button>
-                        </motion.div>
-                    ))}
+            <section className="py-24 bg-white relative z-10">
+                <div className="max-w-[1280px] mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        {solutionCategories.map((sol, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="group bg-[#f8fafc] border border-blue-100 p-10 lg:p-14 rounded-[3rem] transition-all duration-500 hover:bg-white hover:border-blue-200 shadow-xl shadow-blue-500/5 hover:shadow-blue-500/10"
+                            >
+                                <div className="w-16 h-16 bg-blue-50 border border-blue-100 rounded-3xl flex items-center justify-center mb-10 shadow-sm group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                                    <ReactiveIcon icon={sol.icon} size={32} color="currentColor" />
+                                </div>
+                                <h3 className="text-3xl font-black text-[#0a1a2f] mb-6 tracking-tight text-balance uppercase">{sol.title}</h3>
+                                <p className="text-gray-600 text-lg font-medium mb-10 leading-relaxed">
+                                    {sol.description}
+                                </p>
+                                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                                    {sol.features.map((feat, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-sm font-black text-gray-500 uppercase tracking-widest">
+                                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" />
+                                            {feat}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <button className="flex items-center gap-2 text-blue-500 font-black uppercase tracking-widest text-xs group-hover:gap-4 transition-all">
+                                    Explore Infrastructure <ChevronRight className="w-4 h-4" />
+                                </button>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
             {/* Case Study Highlight */}
             <section className="py-24 bg-[#0a1a2f] relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2" />
 
                 <div className="max-w-[1280px] mx-auto px-6 relative z-10">
-                    <div className="glass-card rounded-[3rem] p-10 lg:p-20 overflow-hidden relative group">
-                        <div className="flex flex-col lg:flex-row items-center gap-16">
-                            <div className="w-full lg:w-1/2 text-center lg:text-left">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-black uppercase tracking-widest mb-8">
+                    <div className="glass-card rounded-[3rem] p-10 lg:p-20 overflow-hidden relative group glass-noise-textured">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-24 items-center">
+                            <div className="lg:col-span-7 text-center lg:text-left">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-black uppercase tracking-widest mb-8">
                                     Case Study Highlight
                                 </div>
-                                <div className="flex items-center justify-center lg:justify-start gap-4 mb-8">
-                                    <div className="w-20 h-20 bg-white rounded-2xl p-4 shadow-xl">
-                                        <img src="/LPU-Icon-Logo.jpg" alt="LPU" className="w-full h-auto" onError={(e) => { e.target.src = "https://www.lpu.in/images/logo.png"; }} />
+                                <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6 mb-8">
+                                    <div className="w-24 h-24 bg-white rounded-3xl p-4 shadow-2xl shadow-blue-500/20 border border-blue-100 flex-shrink-0">
+                                        <img
+                                            src="https://www.lpu.in/images/logo.png"
+                                            alt="LPU"
+                                            className="w-full h-full object-contain"
+                                            onError={(e) => { e.target.src = "https://www.lpu.in/images/logo.png"; }}
+                                        />
                                     </div>
-                                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight text-balance">Lovely Professional University</h2>
+                                    <h2 className="text-3xl md:text-5xl lg:text-2xl xl:text-5xl font-black text-white tracking-tight uppercase leading-[0.9] max-w-lg">
+                                        Lovely Professional <span className="text-blue-500">University</span>
+                                    </h2>
                                 </div>
-                                <p className="text-xl text-gray-400 font-medium mb-10 leading-relaxed text-pretty">
+                                <p className="text-xl text-white/50 font-medium mb-10 leading-relaxed max-w-xl">
                                     Deploying secure examination infrastructure for one of India's largest private universities.
                                     Restoring credibility and trust through transparency.
                                 </p>
-                                <button className="px-8 py-4 bg-white text-[#0a1a2f] rounded-2xl font-black transition-transform hover:scale-105 flex items-center justify-center gap-3">
-                                    <span>View Full Architecture</span>
+                                <button className="px-8 py-4 bg-white text-[#0a1a2f] rounded-2xl font-black transition-transform hover:scale-105 flex items-center justify-center gap-3 uppercase tracking-widest text-xs">
+                                    <span>View Architecture</span>
                                     <ReactiveIcon icon={ChevronRight} size={20} />
                                 </button>
                             </div>
 
-                            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-6">
+                            <div className="lg:col-span-5 grid grid-cols-2 gap-4 xl:gap-6">
                                 {[
                                     { label: "Students Tested", value: "300+", icon: <Users2 className="w-5 h-5" />, color: "blue" },
                                     { label: "Security Issues", value: "0", icon: <ShieldCheck className="w-5 h-5" />, color: "emerald" },
@@ -149,12 +164,14 @@ export default function Solution() {
                                         cyan: "text-cyan-400 bg-cyan-500/20"
                                     };
                                     return (
-                                        <SpotlightCard key={i} className="!p-8 rounded-[2rem] hover:bg-white/10 transition-colors !bg-white/5 !border-white/10">
+                                        <SpotlightCard key={i} className="!p-8 rounded-[2rem] hover:bg-white/10 transition-colors" dark={true}>
                                             <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-6 ${colorMap[stat.color]}`}>
                                                 {stat.icon}
                                             </div>
-                                            <p className="text-white text-3xl font-black mb-1">{stat.value}</p>
-                                            <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">{stat.label}</p>
+                                            <p className="text-white text-3xl font-black mb-1">
+                                                <AnimateNumber value={stat.value} />
+                                            </p>
+                                            <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest leading-none">{stat.label}</p>
                                         </SpotlightCard>
                                     );
                                 })}
@@ -165,10 +182,10 @@ export default function Solution() {
             </section>
 
             {/* Policy Alignment */}
-            <section className="py-24 bg-white">
+            <section className="py-32 bg-white border-t border-gray-100 relative z-20">
                 <div className="max-w-[1280px] mx-auto px-6">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight text-balance">Government & Policy Alignment</h2>
+                        <h2 className="text-4xl md:text-5xl font-black text-[#0a1a2f] mb-4 tracking-tight text-balance uppercase">Government & Policy Alignment</h2>
                         <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full" />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -178,12 +195,12 @@ export default function Solution() {
                             { title: "Digital India 2.0", desc: "Advanced national infra", icon: <Zap className="w-6 h-6" /> },
                             { title: "UP Initiative", desc: "40k+ school coding push", icon: <PieChart className="w-6 h-6" /> }
                         ].map((policy, i) => (
-                            <div key={i} className="group p-8 bg-gray-50 rounded-[2rem] border border-gray-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-blue-600 mb-6 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all">
+                            <div key={i} className="group p-8 bg-[#f8fafc] border border-blue-100 rounded-[2rem] transition-all duration-300 hover:bg-white hover:border-blue-200 shadow-xl shadow-blue-500/5">
+                                <div className="w-12 h-12 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all">
                                     {policy.icon}
                                 </div>
-                                <h4 className="text-xl font-black text-gray-900 mb-2">{policy.title}</h4>
-                                <p className="text-sm font-medium text-gray-500 leading-relaxed">{policy.desc}</p>
+                                <h4 className="text-xl font-black text-[#0a1a2f] mb-2 uppercase tracking-tight">{policy.title}</h4>
+                                <p className="text-sm font-medium text-gray-500 leading-relaxed uppercase tracking-widest">{policy.desc}</p>
                             </div>
                         ))}
                     </div>

@@ -31,10 +31,10 @@ const locations = [
 
 export default function Comlocation() {
   return (
-    <section className="py-24 bg-[#0a1a2f] relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
+      {/* <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" /> */}
+      {/* <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" /> */}
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6">
 
@@ -43,7 +43,7 @@ export default function Comlocation() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight"
+            className="text-4xl md:text-5xl font-black text-[#0a1a2f] mb-4 tracking-tight uppercase"
           >
             Multi-City Operations
           </motion.h2>
@@ -63,26 +63,26 @@ export default function Comlocation() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative bg-white/5 backdrop-blur-md border border-white/10 p-10 md:p-14 rounded-[3rem] hover:bg-white/[0.08] transition-all duration-500 hover:border-white/20"
+              className="group relative bg-[#f8fafc] border border-blue-100 p-10 md:p-14 rounded-[3rem] hover:bg-white transition-all duration-500 hover:border-blue-200 shadow-xl shadow-blue-500/5"
             >
               <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 border border-white/10 group-hover:bg-blue-500/20 group-hover:border-blue-500/30">
+                <div className="w-16 h-16 bg-white border border-blue-100 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-sm group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">
                   {loc.icon}
                 </div>
 
                 <div className="text-center md:text-left">
-                  <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">
+                  <h3 className="text-3xl font-black text-[#0a1a2f] mb-2 tracking-tight uppercase">
                     {loc.city}
                   </h3>
-                  <p className="text-blue-400 font-bold uppercase tracking-wider text-sm mb-8 block">
+                  <p className="text-blue-600 font-black uppercase tracking-widest text-sm mb-8 block">
                     {loc.role}
                   </p>
 
                   <ul className="space-y-4">
                     {loc.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center justify-center md:justify-start gap-3 text-gray-400">
-                        <CheckCircle2 className="w-5 h-5 text-gray-600 transition-colors group-hover:text-blue-500 shrink-0" />
-                        <span className="text-base font-medium">{feature}</span>
+                      <li key={fIndex} className="flex items-center justify-center md:justify-start gap-3 text-gray-500">
+                        <CheckCircle2 className="w-5 h-5 text-blue-500/30 transition-colors group-hover:text-blue-500 shrink-0" />
+                        <span className="text-base font-black uppercase tracking-widest leading-none text-[10px]">{feature}</span>
                       </li>
                     ))}
                   </ul>

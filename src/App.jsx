@@ -19,42 +19,41 @@ import ScrollToTop from './components/ScrollToTop';
 function App() {
   const location = useLocation();
 
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.8,
-      lerp: 0.12,
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
+  //   useEffect(() => {
+  //     const lenis = new Lenis({
+  //       duration: 0.8,
+  //       lerp: 0.12,
+  //       smoothWheel: true,
+  //       wheelMultiplier: 1,
+  //       touchMultiplier: 2,
+  //     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  //     function raf(time) {
+  //       lenis.raf(time);
+  //       requestAnimationFrame(raf);
+  //     }
 
-    requestAnimationFrame(raf);
+  //     requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+  //     return () => {
+  //       lenis.destroy();
+  //     };
+  //   }, []);
 
   return (
     <>
-      {/* Background Atmosphere */}
-      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px] animate-float" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-500/10 rounded-full blur-[120px] animate-float-delayed" />
-        <div className="absolute top-[40%] right-[20%] w-[30%] h-[30%] bg-indigo-500/5 rounded-full blur-[100px] animate-float-slow" />
-      </div>
+      {/* <div className="fixed inset-0 z-[-1] pointer-events-none bg-[#020617] overflow-hidden">
+        <div className="absolute inset-0 mesh-atmosphere opacity-50" />
+        <div className="absolute inset-0 bg-noise opacity-10" />
+      </div> */}
 
       <Preloader />
-      <ScrollProgress />
+      {/* <CommandPalette /> */}
+      {/* <ScrollProgress /> */}
       <NavBar />
 
-      <main className="optimize-gpu hardware-accelerated">
-        <AnimatePresence mode="popLayout" onExitComplete={() => window.scrollTo(0, 0)}>
+      <main>
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<PageTransition><Home /></PageTransition>} />
             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
@@ -66,9 +65,9 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
-      <ShowArrpw />
+      {/* <ShowArrpw /> */}
     </>
-  )
+  );
 }
 
 export default App

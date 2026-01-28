@@ -1,11 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Zap, Users, ArrowRight, Play } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Shield, Zap, Users, ArrowRight, Play, Lock, Database, Code, Globe } from 'lucide-react';
 import TrustIndicator from './TrustIndicator';
 import Magnetic from './Magnetic';
 import ReactiveIcon from './ReactiveIcon';
 
 export default function HeroSection() {
+  //   const mouseX = useMotionValue(0);
+  //   const mouseY = useMotionValue(0);
+
+  //   const springConfig = { damping: 25, stiffness: 150 };
+  //   const auraX = useSpring(mouseX, springConfig);
+  //   const auraY = useSpring(mouseY, springConfig);
+
+  //   useEffect(() => {
+  //     const handleMouseMove = (e) => {
+  //       mouseX.set(e.clientX);
+  //       mouseY.set(e.clientY);
+  //     };
+  //     window.addEventListener("mousemove", handleMouseMove);
+  //     return () => window.removeEventListener("mousemove", handleMouseMove);
+  //   }, [mouseX, mouseY]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -21,12 +37,20 @@ export default function HeroSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
+  const particles = [
+    { icon: Lock, x: "10%", y: "20%", size: 40, delay: 0 },
+    { icon: Database, x: "85%", y: "15%", size: 30, delay: 2 },
+    { icon: Code, x: "15%", y: "70%", size: 25, delay: 4 },
+    { icon: Globe, x: "80%", y: "80%", size: 35, delay: 1 },
+    { icon: Shield, x: "45%", y: "10%", size: 20, delay: 3 },
+  ];
+
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen w-full flex items-center overflow-hidden bg-[#0a1a2f]">
       {/* Background with Overlay */}
-      {/* Aurora Background */}
-      <div className="absolute inset-0 z-0 aurora-bg opacity-60" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0a1a2f]/20 via-[#0a1a2f]/60 to-[#0a1a2f]" />
+      {/* Optimized Interactive Mouse Aura */}
+      {/* Background with Overlay */}
+      <div className="absolute inset-0 z-0 bg-blue-900/10 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-12 py-20 lg:py-32">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -40,7 +64,7 @@ export default function HeroSection() {
           >
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-sm font-semibold mb-6"
             >
               <ReactiveIcon icon={Shield} size={16} color="currentColor" />
               <span>Public Examinations Act 2024 Compliant</span>
@@ -48,7 +72,7 @@ export default function HeroSection() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 text-balance"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.2] lg:leading-[1.1] tracking-tight mb-8 text-balance"
             >
               Enterprise-Grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 animate-gradient-x">Security</span> for Digital Exams
             </motion.h1>
@@ -75,7 +99,7 @@ export default function HeroSection() {
               </Magnetic>
 
               <Magnetic>
-                <button className="w-full sm:w-auto h-[60px] px-8 bg-white/5 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center gap-2 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/40 hover:shadow-lg hover:shadow-white/5">
+                <button className="w-full sm:w-auto h-[60px] px-8 bg-white/10 border border-white/20 rounded-xl font-bold text-white flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-white/5">
                   <ReactiveIcon icon={Play} size={20} />
                   <span>View Platform</span>
                 </button>
@@ -111,7 +135,7 @@ export default function HeroSection() {
           >
             <div className="relative group">
               {/* Decorative elements behind image */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+              <div className="absolute -inset-4 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
 
               <img
                 src="/src/images/dashboard-mockup.png"

@@ -6,18 +6,18 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#0a1a2f] text-gray-300 overflow-hidden">
+    <footer className="relative bg-[#0a1a2f] text-gray-400 overflow-hidden border-t border-white/5">
 
       {/* Mesh Gradient Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[128px]" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/05 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* CTA Section */}
       <div className="relative z-10 border-b border-white/10">
         <div className="max-w-[1280px] mx-auto px-6 py-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight">Ready to Transform Your Institution?</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight uppercase">Ready to Transform Your Institution?</h2>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
             Join 500+ elite universities and schools upgrading to EduNiketan's secure infrastructure today.
           </p>
@@ -38,7 +38,7 @@ export default function Footer() {
 
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <h2 className="text-2xl font-bold text-white mb-6 tracking-tighter">EDUNIKETAN</h2>
+            <h2 className="text-2xl font-black text-white mb-6 tracking-[0.2em] uppercase">EDUNIKETAN</h2>
             <p className="text-gray-400 mb-8 leading-relaxed font-medium">
               Enterprise-grade security and scalability for high-stakes digital examinations.
               Revolutionizing Indian education through technology.
@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Links: Company */}
           <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Company</h4>
+            <h4 className="text-white font-black mb-6 text-sm uppercase tracking-widest">Company</h4>
             <ul className="space-y-4">
               <li><Link to="/about" className="hover:text-blue-400 transition-colors font-medium">About Us</Link></li>
               <li><Link to="/careers" className="hover:text-blue-400 transition-colors font-medium">Careers</Link></li>
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Links: Products */}
           <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Products</h4>
+            <h4 className="text-white font-black mb-6 text-sm uppercase tracking-widest">Products</h4>
             <ul className="space-y-4">
               <li><Link to="/products" className="hover:text-blue-400 transition-colors font-medium">EduCode</Link></li>
               <li><Link to="/products" className="hover:text-blue-400 transition-colors font-medium">EduLive</Link></li>
@@ -80,7 +80,7 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h4 className="text-white font-bold mb-6 text-lg">Get in Touch</h4>
+            <h4 className="text-white font-black mb-6 text-sm uppercase tracking-widest">Get in Touch</h4>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-blue-500" />

@@ -17,10 +17,8 @@ const pageVariants = {
 };
 
 const pageTransition = {
-    type: "spring",
-    stiffness: 120,
-    damping: 25,
-    mass: 0.8
+    duration: 0.3, // Faster, snappy feel
+    ease: "easeOut"
 };
 
 export default function PageTransition({ children }) {
@@ -31,7 +29,6 @@ export default function PageTransition({ children }) {
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
-            style={{ willChange: 'transform, opacity' }}
             className="w-full"
         >
             {children}
