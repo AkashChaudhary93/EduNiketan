@@ -29,7 +29,7 @@ const leaders = [
         name: "Saif Siddique",
         role: "Co-Founder & Chief Finance Officer",
         dept: "Finance & Operations",
-        img: ""
+        img: "/images/saif.jpg"
     },
     {
         name: "Sujeet Kumar",
