@@ -123,7 +123,7 @@ export default function Contact() {
                                     <h3 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 mb-8">Executive Contact</h3>
                                     <div className="flex items-center gap-4 mb-6">
                                         <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-blue-100">
-                                            <img src="/src/images/souvik.jpg-removebg-preview.png" alt="Souvik" className="w-full h-full object-cover" onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000"; }} />
+                                            <img src="/images/souvik.jpg-removebg-preview.png" alt="Souvik" className="w-full h-full object-cover" onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000"; }} />
                                         </div>
                                         <div>
                                             <h4 className="text-xl font-black text-[#0a1a2f] tracking-tight uppercase">Souvik Gupta</h4>

@@ -138,7 +138,7 @@ export default function HeroSection() {
               <div className="absolute -inset-4 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
 
               <img
-                src="/src/images/dashboard-mockup.png"
+                src="/images/dashboard-mockup.png"
                 alt="EduNiketan Dashboard Preview"
                 className="relative w-full max-w-[500px] h-auto rounded-2xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] border border-white/10 transition-transform duration-500 group-hover:-translate-y-2"
                 onError={(e) => {

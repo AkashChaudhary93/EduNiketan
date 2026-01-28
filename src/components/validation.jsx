@@ -71,7 +71,7 @@ export default function Validation() {
               <div className="flex flex-col md:flex-row items-center gap-8 justify-center lg:justify-start">
                 <div className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-[2.5rem] p-6 flex items-center justify-center border border-blue-100 shadow-lg shadow-blue-500/5">
                   <img
-                    src="/src/images/LPU-Icon-Logo.jpg"
+                    src="/images/LPU-Icon-Logo.jpg"
                     alt="LPU Logo"
                     className="w-full h-auto object-contain brightness-110"
                     onError={(e) => {

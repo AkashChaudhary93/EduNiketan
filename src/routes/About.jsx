@@ -23,7 +23,7 @@ const leaders = [
         name: "Souvik Gupta",
         role: "Founder & Chief Technical Officer",
         dept: "Technology & Development",
-        img: "/src/images/souvik.jpg-removebg-preview.png"
+        img: "/images/souvik.jpg-removebg-preview.png"
     },
     {
         name: "Saif Siddique",
@@ -35,13 +35,13 @@ const leaders = [
         name: "Sujeet Kumar",
         role: "Security Architecture",
         dept: "Technology & Development",
-        img: "/src/images/sujeet.jpg"
+        img: "/images/sujeet.jpg"
     },
     {
         name: "Mohit Raj Deo",
         role: "Chief R&D Officer",
         dept: "Product Development",
-        img: "/src/images/mohit.jpg"
+        img: "/images/mohit.jpg"
     }
 ];
 
@@ -114,7 +114,7 @@ export default function About() {
                             <div className="relative group hover:scale-[1.02] transition-transform duration-700">
                                 <div className="absolute -inset-4 bg-blue-500/10 rounded-[3rem] blur-xl group-hover:bg-blue-500/20 transition-all duration-700" />
                                 <img
-                                    src="/src/images/eduAbout1.jpg"
+                                    src="/images/eduAbout1.jpg"
                                     alt="Infrastructure"
                                     className="relative w-full h-auto rounded-[3rem] shadow-2xl border border-white/10 object-cover aspect-[4/3] grayscale group-hover:grayscale-0 transition-all duration-1000"
                                     onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"; }}
