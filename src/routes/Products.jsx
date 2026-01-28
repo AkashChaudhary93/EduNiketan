@@ -70,7 +70,9 @@ export default function Products() {
             </section>
 
             {/* Bento Grid Features */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-[#fbfcfd] relative overflow-hidden">
+                {/* Subtle background texture or grain could be added here if desired */}
+                <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />
                 <div className="max-w-[1280px] mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 md:auto-rows-[160px]">
 
@@ -90,24 +92,24 @@ export default function Products() {
                                         powering thousands of concurrent examinations with zero margin for error.
                                     </p>
                                 </div>
-                                <div className="relative mt-8 group-hover:scale-[1.02] transition-transform duration-700">
+                                <div className="relative mt-8 group-hover:scale-[1.01] transition-transform duration-700">
+                                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                                     <img
-                                        src="/EduDashboard.jpg.png"
+                                        src="/images/EduDashboard.jpg.png"
                                         alt="Dashboard"
-                                        className="w-full h-auto rounded-3xl shadow-2xl border border-white/10"
+                                        className="relative w-full h-auto rounded-3xl shadow-2xl border border-blue-100/50"
                                         onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1551288049-bbda38a5f850?q=80&w=1000"; }}
                                     />
-                                    <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+                                    {/* REMOVED GLITCHY DARK GRADIENT */}
                                 </div>
                             </SpotlightCard>
                         </motion.div>
 
-                        {/* Security Box */}
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-3"
+                            className="md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-3 h-full"
                         >
-                            <SpotlightCard className="h-full p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl shadow-blue-500/5" dark={false}>
+                            <SpotlightCard className="h-full p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-2xl shadow-blue-500/[0.08] border border-blue-50/50" dark={false}>
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-[100px]" />
                                 <div>
                                     <ReactiveIcon icon={ShieldCheck} size={40} color="rgb(37 99 235)" className="mb-6" />
@@ -133,12 +135,11 @@ export default function Products() {
                             </SpotlightCard>
                         </motion.div>
 
-                        {/* Performance Box */}
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2"
+                            className="md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2 h-full"
                         >
-                            <SpotlightCard dark={false} className="h-full p-8 flex flex-col justify-center transition-all duration-500 shadow-xl shadow-blue-500/5">
+                            <SpotlightCard dark={false} className="h-full p-8 flex flex-col justify-center transition-all duration-500 shadow-2xl shadow-indigo-500/[0.08] border border-indigo-50/50">
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="w-12 h-12 bg-indigo-50 border border-indigo-100 rounded-2xl flex items-center justify-center shadow-sm">
                                         <BarChart3 className="w-6 h-6 text-indigo-600" />
@@ -149,12 +150,11 @@ export default function Products() {
                             </SpotlightCard>
                         </motion.div>
 
-                        {/* Scale Box */}
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2"
+                            className="md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2 h-full"
                         >
-                            <SpotlightCard dark={false} className="h-full p-8 flex flex-col justify-center transition-all duration-500 shadow-xl shadow-blue-500/5">
+                            <SpotlightCard dark={false} className="h-full p-8 flex flex-col justify-center transition-all duration-500 shadow-2xl shadow-emerald-500/[0.08] border border-emerald-50/50">
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="w-12 h-12 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center shadow-sm text-emerald-600">
                                         <Users className="w-6 h-6" />
@@ -249,6 +249,7 @@ export default function Products() {
                 <div className="max-w-[1280px] mx-auto px-6 text-center">
                     <h2 className="text-4xl md:text-5xl font-black text-[#0a1a2f] mb-16 tracking-tight text-balance uppercase">Built For Excellence</h2>
                     <div className="flex flex-wrap justify-center gap-4">
+                        {/* Target Deployment Cards */}
                         {[
                             "Elite Universities",
                             "Premium Colleges",
@@ -258,9 +259,10 @@ export default function Products() {
                         ].map((target, i) => (
                             <motion.span
                                 key={i}
-                                whileHover={{ y: -5, scale: 1.02 }}
-                                className="px-10 py-5 bg-white border border-blue-100 rounded-3xl font-black text-[#0a1a2f] uppercase tracking-widest text-sm shadow-xl shadow-blue-500/5 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all cursor-default"
+                                whileHover={{ y: -8, scale: 1.05 }}
+                                className="px-10 py-6 bg-white border border-blue-100 rounded-[2rem] font-black text-[#0a1a2f] uppercase tracking-widest text-sm shadow-2xl shadow-blue-500/[0.08] hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all cursor-default relative overflow-hidden group"
                             >
+                                <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-10 transition-opacity" />
                                 {target}
                             </motion.span>
                         ))}
