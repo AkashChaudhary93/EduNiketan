@@ -72,14 +72,14 @@ export default function HeroSection() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.2] lg:leading-[1.1] tracking-tight mb-8 text-balance"
+              className="text-3xl md:text-6xl lg:text-7xl font-bold leading-[1.2] lg:leading-[1.1] tracking-tight mb-4 text-balance"
             >
               Enterprise-Grade <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 animate-gradient-x">Security</span> for Digital Exams
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium opacity-90 text-pretty"
+              className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed font-medium opacity-90 text-pretty"
             >
               The most trusted platform for high-stakes examinations. Scalable, secure, and fully compliant with national safety standards.
             </motion.p>
