@@ -36,7 +36,7 @@ export default function Magnetic({ children }) {
                 display: 'inline-block',
                 x,
                 y,
-                willChange: "transform"
+                backfaceVisibility: "hidden"
             }}
             ref={ref}
             onMouseMove={handleMouse}

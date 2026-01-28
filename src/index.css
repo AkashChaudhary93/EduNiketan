@@ -29,7 +29,7 @@
         @apply font-sans bg-[#020617] text-gray-300;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-rendering: geometricPrecision;
+        text-rendering: optimizeLegibility;
         overflow-x: hidden;
     }
 
@@ -49,12 +49,20 @@
         @apply tracking-tight font-bold text-white;
         letter-spacing: -0.022em;
         line-height: 1.1;
-        text-rendering: geometricPrecision;
+        text-rendering: optimizeLegibility;
     }
 }
 
 @layer utilities {
     .optimize-gpu {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
+    .crisp-text {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        backface-visibility: hidden;
         transform: translateZ(0);
     }
 

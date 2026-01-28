@@ -57,7 +57,7 @@ function NavBar() {
             opacity: 1,
             maxWidth: scrolled ? '1200px' : '1280px',
           }}
-          style={{ willChange: "transform" }}
+          style={{ backfaceVisibility: "hidden" }}
           transition={{
             type: "spring",
             stiffness: 120,
@@ -100,7 +100,7 @@ function NavBar() {
                       style={{ imageRendering: 'high-quality' }}
                     />
                   </div>
-                  <span className="text-xl font-black text-white tracking-[0.1em] group-hover:tracking-[0.15em] transition-all duration-500 whitespace-nowrap">
+                  <span className="text-lg md:text-xl font-black text-white tracking-[0.1em] group-hover:tracking-[0.15em] transition-all duration-500 whitespace-nowrap">
                     EDUNIKETAN
                   </span>
                 </NavLink>

@@ -38,7 +38,7 @@ const Preloader = memo(function Preloader() {
                         transition={{ duration: 1 }}
                         src="/EduniketanLogoNew.jpg"
                         alt="Eduniketan Logo"
-                        className="w-28 h-28 rounded-full shadow-[0_0_60px_rgba(59,130,246,0.4)] ring-4 ring-white/5 relative z-10"
+                        className="w-24 h-24 md:w-28 md:h-28 rounded-full shadow-[0_0_60px_rgba(59,130,246,0.4)] ring-4 ring-white/5 relative z-10"
                     />
                 </div>
 
@@ -47,7 +47,7 @@ const Preloader = memo(function Preloader() {
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-5xl font-black text-white tracking-[0.4em] bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40"
+                        className="text-3xl md:text-5xl font-black text-white tracking-[0.2em] md:tracking-[0.4em] bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40"
                     >
                         EDUNIKETAN
                     </motion.h1>
